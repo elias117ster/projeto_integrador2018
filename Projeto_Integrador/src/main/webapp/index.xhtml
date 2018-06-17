@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+
+
+<h:head>
+	<title>Bem vindo à J.A.V.E.C!</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body style="background-color:#709FF0">
+
+	<div class="panel panel-info">
+		<h:outputStylesheet name="style.css" library="css" />
+
+		<div class="panel-body">
+
+			<h:form>
+				<div align="center">
+					<div class="col-md-12 col-sm-12"
+						style="margin-top: 100px; background-color: white;">
+						<div class="col-md-1" />
+
+
+						<h:graphicImage library="imagens" name="logo.png" />
+
+						<br />
+
+
+						<f:facet name="header">
+							<h:outputLabel value="#{msg.mensagemLogin}" styleClass="emphasis"
+								id="mensg" />
+						</f:facet>
+
+						<h:messages />
+
+						<h:panelGrid columns="2">
+							<h:outputLabel value="#{msg.labelLogin}:" />
+							<h:inputText value="#{userBean.usuario.login}" />
+							<h:outputLabel value="#{msg.labelSenha}:" />
+							<h:inputSecret value="#{userBean.usuario.senha}" />
+						</h:panelGrid>
+						<br />
+						<h:commandButton value="#{msg.btnLogin}"
+							action="#{userBean.actionLogar}" />
+						<br />
+
+
+
+					</div>
+					<br />
+				</div>
+				<br />
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>

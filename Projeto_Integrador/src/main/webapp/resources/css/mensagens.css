@@ -1,0 +1,10 @@
+@CHARSET"UTF-8";
+.errors{
+	font-style: italic;
+	color: red;
+	font-size: 13px;
+}
+
+.emphasis{
+	font-size: 18px;
+}

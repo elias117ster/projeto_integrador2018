@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<h:outputStylesheet name="style.css" library="css" />
+			<h:inputHidden value="#{Bem_Bean.bem.id}" />
+
+
+			<div align="center">
+				<div class="panel-heading">
+					<h1>Patrimônio</h1>
+				</div>
+
+				<h:form id="Patrimonio">
+					<h:inputHidden value="#{Bem_Bean.bem.id}" />
+					<h:messages layout="table" errorClass="errors" />
+					<div class="form-inline" style="margin-top: 20px;">
+
+						<div class="form-group">
+							<h:outputLabel value="#{msg.PromptseUsa} ">
+							</h:outputLabel>
+							<div class="col-sm-20">
+								<h:selectOneRadio class="checkbox"
+									value="#{Bem_Bean.bem.bem_usado}" id="Tipo" required="true">
+									<f:selectItem itemValue="Sim" itemLabel="Usado" />
+									
+									<f:selectItem itemValue="Não" itemLabel="Novo" />
+								</h:selectOneRadio>
+							</div>
+						</div>
+					</div>
+					<div class="form-inline">
+						<div class="form-group"
+							style="margin-bottom: 20px; margin-top: 20px;">
+							<h:outputLabel value="Tempo de Uso: "></h:outputLabel>
+							<h:selectOneMenu value="#{Bem_Bean.bem.tempo_uso}"
+								required="true">
+								<f:selectItem itemLabel="-Bem Novo-" itemValue="0" />
+								<f:selectItem itemLabel="1 ano" itemValue="1" />
+								<f:selectItem itemLabel="2 anos" itemValue="2" />
+								<f:selectItem itemLabel="3 anos" itemValue="3" />
+								<f:selectItem itemLabel="4 anos" itemValue="4" />
+								<f:selectItem itemLabel="5 anos" itemValue="5" />
+								<f:selectItem itemLabel="6 anos" itemValue="6" />
+								<f:selectItem itemLabel="7 anos" itemValue="7" />
+								<f:selectItem itemLabel="8 anos" itemValue="8" />
+								<f:selectItem itemLabel="9 anos" itemValue="9" />
+								<f:selectItem itemLabel="10 anos" itemValue="10" />
+								<f:selectItem itemLabel="11 anos" itemValue="11" />
+								<f:selectItem itemLabel="12 anos" itemValue="12" />
+								<f:selectItem itemLabel="13 anos" itemValue="13" />
+								<f:selectItem itemLabel="14 anos" itemValue="14" />
+								<f:selectItem itemLabel="15 anos" itemValue="15" />
+								<f:selectItem itemLabel="16 anos" itemValue="16" />
+								<f:selectItem itemLabel="17 anos" itemValue="17" />
+								<f:selectItem itemLabel="18 anos" itemValue="18" />
+								<f:selectItem itemLabel="19 anos" itemValue="19" />
+								<f:selectItem itemLabel="20 anos" itemValue="20" />
+								<f:selectItem itemLabel="21 anos" itemValue="21" />
+								<f:selectItem itemLabel="22 anos" itemValue="22" />
+								<f:selectItem itemLabel="23 anos" itemValue="23" />
+								<f:selectItem itemLabel="24 anos" itemValue="24" />
+								<f:selectItem itemLabel="25 anos" itemValue="25" />
+								<f:selectItem itemLabel="26 anos" itemValue="26" />
+								<f:selectItem itemLabel="27 anos" itemValue="27" />
+								<f:selectItem itemLabel="28 anos" itemValue="28" />
+								<f:selectItem itemLabel="29 anos" itemValue="29" />
+								<f:selectItem itemLabel="30 anos" itemValue="30" />
+							</h:selectOneMenu>
+						</div>
+					</div>
+
+					<h:messages layout="table" errorClass="errors" />
+					<div class="form-horizontal">
+						<div class="form-group">
+							<h:outputLabel class="control-label col-sm-5"
+								value="Nome do Patrimônio: "></h:outputLabel>
+							<div class="col-sm-3">
+								<h:inputText class="form-control"
+									value="#{Bem_Bean.bem.nome_bem}" required="true" />
+
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel class="control-label col-sm-5"
+								value="Data de Aquisição: "></h:outputLabel>
+							<div class="col-sm-3">
+								<h:inputText class="form-control"
+									value="#{Bem_Bean.bem.dataAquisicao}" required="true">
+									<f:convertDateTime dateStyle="short" />
+								</h:inputText>
+
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel class="control-label col-sm-5"
+								value="Valor de Aquisição: "></h:outputLabel>
+							<div class="col-sm-5">
+								<h:inputText class="form-control"
+									value="#{Bem_Bean.bem.valor_aquisicao}" required="true">
+									<f:convertNumber minFractionDigits="2" />
+								</h:inputText>
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel class="control-label col-sm-5"
+								value="Taxa Residual: "></h:outputLabel>
+							<div class="col-sm-3">
+								<h:inputText class="form-control"
+									value="#{Bem_Bean.bem.taxa_residual}" required="true">
+									<f:convertNumber pattern="#,##0.0#" />
+								</h:inputText>
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel class="control-label col-sm-5"
+								value="Categoria do Bem: "></h:outputLabel>
+							<div class="col-sm-3">
+								<h:inputText class="form-control"
+									value="#{Bem_Bean.bem.categoria}" required="true" />
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel class="control-label col-sm-5" value="Vida Útil: "></h:outputLabel>
+							<div class="col-sm-3">
+								<h:inputText class="form-control"
+									value="#{Bem_Bean.bem.vida_util}" required="true" />
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel class="control-label col-sm-5"
+								value="Turnos Trabalhados: "></h:outputLabel>
+							<div class="col-sm-3">
+								<h:selectOneMenu class="control-label col-sm-30"
+									value="#{Bem_Bean.bem.turnos}" required="true">
+									<f:selectItem itemLabel="#{msg.turno1}" itemValue="1" />
+									<f:selectItem itemLabel="#{msg.turno2}" itemValue="2" />
+									<f:selectItem itemLabel="#{msg.turno3}" itemValue="3" />
+								</h:selectOneMenu>
+							</div>
+						</div>
+						
+						
+										
+						
+						
+					</div>
+					<br />
+					<div class="btn-group" style="margin-bottom: 20px;">
+						<h:commandButton class="btn btn-primary" value="Gravar"
+							onclick="if(!confirm('Confirma a Gravação do Bens ?')) return false;"
+							action="#{Bem_Bean.actionGravar}" />
+					</div>
+				</h:form>
+				<h:form>
+
+					<div class="btn-group" style="margin-bottom: 20px;">
+						<h:commandButton class="btn btn-primary" value="Voltar"
+							action="form_alteracoes_bens" />
+
+					</div>
+
+
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

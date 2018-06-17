@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<body>
+	<ui:composition>
+		<div align="center" class="box">
+			<h:graphicImage library="imagens" name="logo.png" position="center"
+				size="10" />
+			<br />
+			<h:outputLabel style="font-size: 1em; margin-top: -50px;"
+				value="#{Bem_Bean.d}">
+				<f:convertDateTime pattern="dd 'de' MMMM 'de' yyyy" />
+			</h:outputLabel>
+
+			<h3>Sistema para Controle e Depreciação de Patrimônio</h3>
+		</div>
+
+
+	</ui:composition>
+</body>
+</html>

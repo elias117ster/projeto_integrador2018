@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<h:outputStylesheet name="style.css" library="css" />
+
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h1>Bens - Cadastro e  Simulação de Depreciação</h1>
+				</div>
+
+
+				<div align="center">
+
+					<h:graphicImage style="margin-top: 20px;" library="imagens"
+						name="zero.png"
+						title="Cadastro e Alterações dos Bens Cadastrados" />
+					<br />
+					<h:form>
+
+						<div class="btn-group"
+							style="margin-top: 20px; margin-bottom: 20px;">
+							<h:commandButton class="btn btn-primary btn-block"
+								value=" Cadastrar Bens "
+								onclick="if(!confirm('Confirma a Opção para Cadastro de Bens? ')) return false;"
+								action="#{Bem_Bean.actionNovo}" />
+						</div>
+<hr />
+						<br />
+						<br />
+						<h:outputText value="Relatório de Bens cadastrados"/>
+						<br />
+						<br />
+						<h:inputHidden value="#{Bem_Bean.bem.id}" />
+						<h:dataTable value="#{Bem_Bean.list}" var="patrimonio"
+							class=" table table-hover " style="text-align:center;">
+
+							<h:column>
+								<h:outputLabel value="#{patrimonio.id}" />
+							</h:column>
+							<h:column>
+
+								<h:outputLabel value="#{patrimonio.nome_bem}" />
+							</h:column>
+							<h:column>
+
+								<h:outputLabel value="#{patrimonio.categoria}" />
+							</h:column>
+
+
+							<h:column>
+								<h:commandLink action="edicao_patrimonio"
+									onclick="if(!confirm('Confirma a Edição do Bem #{patrimonio.nome_bem}')) return false;">
+									<h:graphicImage library="imagens" name="notes (1).png"
+										title="Editar Patrimônio" />
+									<f:setPropertyActionListener value="#{patrimonio}"
+										target="#{Bem_Bean.bem}" />
+								</h:commandLink>
+							</h:column>
+
+							<h:column>
+								<h:commandLink action="#{Bem_Bean.actionCalcularDep}">
+									<h:graphicImage library="imagens" name="deprec.png"
+										title="Simulaçao de Depreciação " />
+									<f:setPropertyActionListener value="#{patrimonio}"
+										target="#{Bem_Bean.bem}" />
+								</h:commandLink>
+							</h:column>
+							
+							<h:column>
+								<h:commandLink action="simulacao_Calculo">
+									<h:graphicImage library="imagens" name="record (1).png"
+										title="Baixa do Bem" />
+									<f:setPropertyActionListener value="#{patrimonio}"
+										target="#{Bem_Bean.bem}" />
+								</h:commandLink>
+							</h:column>
+							
+							
+							<h:column>
+								<h:commandLink action="#{Bem_Bean.actionExcluir}"
+									onclick="if(!confirm('Confirma a EXCLUSÃO do Bem  #{patrimonio.nome_bem}')) return false;">
+									<h:graphicImage library="imagens" name="error.png"
+										title="Excluir o Bem" />
+									<f:setPropertyActionListener value="#{patrimonio}"
+										target="#{Bem_Bean.bem}" />
+								</h:commandLink>
+							</h:column>
+							
+							
+							
+						</h:dataTable>
+
+						<br />
+						<br />
+						<br />
+
+						<div class="btn-group" style="margin-top: 20px;">
+							<h:commandButton class="btn btn-primary" value="Voltar Para Menu"
+								action="#{Bem_Bean.actionVoltarMenu}" />
+						</div>
+
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

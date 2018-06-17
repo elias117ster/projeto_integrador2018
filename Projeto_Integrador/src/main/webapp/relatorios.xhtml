@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<div class="panel panel-info">
+				<h:outputStylesheet name="style.css" library="css" />
+
+
+				<div class="panel-heading">
+					<h1>Relatórios de Bens Ativos e Baixados</h1>
+				</div>
+				<div class="panel-body">
+
+					<h:form>
+						<div align="center">
+
+							<table>
+								<tr>
+									<td>&nbsp;&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+									<td><h:commandLink styleClass="links"
+											value="Lista de Patrimonios Ativos"
+											action="relatorios_patrimoniais" /></td>
+									
+									<td>&nbsp;&nbsp;&nbsp;</td>
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<td>&nbsp;&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+
+									<td><h:commandLink styleClass="links"
+											value="Patrimonios Baixados"
+											onclick="if(!confirm('Deseja Visualizar o Relatório?')) return false;"
+											action="baixados" /></td>
+									
+									<td>&nbsp;&nbsp;&nbsp;</td>
+								</tr>
+							</table>
+
+							<div style="text-align: center; margin-top: 90px;">
+								<h:commandButton value="Voltar para MENU"
+									onclick="if(!confirm('Deseja Voltar ao Menu ?')) return false;"
+									action="#{Bem_Bean.actionVoltarMenu}" />
+							</div>
+
+						</div>
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

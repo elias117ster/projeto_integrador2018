@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<h:outputStylesheet name="style.css" library="css" />
+
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h1>Dados do Patrimonio para a BAIXA</h1>
+				</div>
+				<h:form id="Baixar">
+
+					<h:inputHidden value="#{Bem_Bean.bem.id}" />
+					<div style="margin-bottom: 10px;">
+
+						<h:outputLabel style="font-size: 1em; margin-top: -50px;"
+							value="#{Bem_Bean.d}">
+							<f:convertDateTime pattern="dd 'de' MMMM 'de' yyyy" />
+						</h:outputLabel>
+					</div>
+					<table class="table" align="center">
+						<thead>
+							<tr class="info">
+								<td><h:outputLabel value="ID: " /></td>
+								<td><h:outputLabel value="#{Bem_Bean.bem.id}" /></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel value="NOME: " /></td>
+								<td><h:outputLabel value="#{Bem_Bean.bem.nome_bem}" /></td>
+							</tr>
+							<tr class="info">
+								<td><h:outputLabel value="DATA DE AQUISIÇÃO: " /></td>
+								<td><h:outputLabel value="#{Bem_Bean.bem.dataAquisicao}">
+										<f:convertDateTime pattern="dd/MM/yyyy" />
+									</h:outputLabel></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel value="VIDA ÚTIL: " /></td>
+								<td><h:outputLabel value="#{Bem_Bean.bem.vida_util}"
+										disabled="true">
+										<f:convertNumber pattern="#' Anos'" />
+									</h:outputLabel></td>
+							</tr>
+
+							<tr class="info">
+								<td><h:outputLabel value="VALOR DE AQUISIÇÃO: " /></td>
+								<td><h:outputLabel value="#{Bem_Bean.bem.valor_aquisicao}">
+										<f:convertNumber pattern="#0.00" />
+									</h:outputLabel></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel value="TURNOS TRABALHADOS: " /></td>
+								<td><h:outputLabel value="#{Bem_Bean.bem.turnos}">
+										<f:convertNumber pattern="#0 x 8hrs" />
+									</h:outputLabel></td>
+							</tr>
+							<tr class="info">
+								<td><h:outputLabel value="TAXA RESIDUAL: " /></td>
+								<td><h:outputText value="#{Bem_Bean.bem.taxa_residual}">
+										<f:convertNumber pattern="#0' %'" />
+									</h:outputText></td>
+							</tr>
+
+						</thead>
+					</table>
+					<h:messages layout="table" errorClass="errors" />
+					<div class="form-inline">
+						<div class="form-group">
+							<h:outputLabel class="control-label col-sm-4"
+								value="Data da Venda: "></h:outputLabel>
+							<div class="col-sm-4">
+								<h:inputText class="form-control" value="#{Bem_Bean.dateInf}">
+									<f:convertDateTime pattern="dd/MM/yyyy" />
+								</h:inputText>
+							</div>
+						</div>
+					</div>
+
+					<br />
+					
+				
+
+					
+
+
+					<div class="form-group">
+						<div class="col-sm-4">
+							<h:commandButton class="btn btn-danger"
+								value="Simular Depreciação"
+								
+								action="#{Bem_Bean.actionSIMULARdep}" />
+						</div>
+					</div>
+					<br />
+					
+			
+					
+					
+					<h:form>
+						<div class="btn-group"
+							style="margin-top: 30px; margin-bottom: 40px;">
+							<h:commandButton class="btn btn-primary btn-block" value="Voltar"
+								action="form_alteracoes_bens" />
+						</div>
+					</h:form>
+					
+					
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

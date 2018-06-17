@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<h:outputStylesheet name="style.css" library="css" />
+
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h1>Listagem dos Patrimonios Ativos</h1>
+				</div>
+				<div align="center" style="margin-top: 20px;">
+					<h:form>
+						<div class="table-responsive">
+							<h:dataTable value="#{Bem_Bean.list}" var="patrimonio" border="4"
+								styleClass="orders" headerClass="ordersHeader"
+								rowClasses="oddRow,evenRow" classe="table-striped">
+								<f:facet name="header">
+
+								</f:facet>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="CODIGO: " />
+									</f:facet>
+									<h:outputLabel value="#{patrimonio.id}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="#{msg.PromptNome}" />
+									</f:facet>
+									<h:outputLabel value="#{patrimonio.nome_bem}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="#{msg.PromptAquisicao}" />
+									</f:facet>
+									<h:outputLabel value="#{patrimonio.dataAquisicao}">
+										<f:convertDateTime pattern="dd/MM/yyyy" />
+									</h:outputLabel>
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="#{msg.PromptCateg}" />
+									</f:facet>
+									<h:outputLabel value="#{patrimonio.categoria}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="#{msg.PromptVd}" />
+									</f:facet>
+									<h:outputLabel value="#{patrimonio.vida_util}">
+										<f:convertNumber pattern="#'anos'" />
+									</h:outputLabel>
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="#{msg.PromptValorAq}" />
+									</f:facet>
+									<h:outputLabel value="#{patrimonio.valor_aquisicao}">
+										<f:convertNumber pattern="#0.00" />
+									</h:outputLabel>
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="#{msg.PromptTtrab}" />
+									</f:facet>
+									<h:outputLabel value="#{patrimonio.turnos}">
+										<f:convertNumber pattern="#0 x 8hs" />
+									</h:outputLabel>
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="#{msg.PromptTr}" />
+									</f:facet>
+									<h:outputLabel value="#{patrimonio.taxa_residual}">
+										<f:convertNumber pattern="# '%'" />
+									</h:outputLabel>
+								</h:column>
+								
+								
+							</h:dataTable>
+						</div>
+						<div class="btn-group"
+							style="margin-top: 20px; margin-bottom: 20px;">
+							<h:commandButton class="btn btn-primary" value="Voltar"
+								onclick="if(!confirm('Deseja Voltar ?')) return false;"
+								action="relatorios" />
+						</div>
+
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
